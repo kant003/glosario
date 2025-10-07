@@ -3,7 +3,7 @@ deliberadamente (por motivos de seguridad o comerciales) en la funcionalidad de 
 como si el usuario tuviera los permisos o privilegios necesarios para hacerlo. En español se le suele llamar "liberar"
 
 Dificultad: Básico
-Traduccion: Jailbreak
+Traduccion: Liberar
 Frase de ejemplo: Quiero liberar mi consola para descargar juegos pirata
 Sinónimos: Hackear, liberar, to jailbreak, to hack
 Etiquetas: seguridad, hardware, videojuegos
