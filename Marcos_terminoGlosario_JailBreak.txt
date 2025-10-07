@@ -1,10 +1,14 @@
-En informática, significa escalada de privilegios, en el sentido de sobrepasar las limitaciones establecidas 
+Término: Jailbreak/Liberar
+
+En informática, Jailbreak, significa escalada de privilegios, en el sentido de sobrepasar las limitaciones establecidas 
 deliberadamente (por motivos de seguridad o comerciales) en la funcionalidad de un sistema o de un dispositivo informático, 
-como si el usuario tuviera los permisos o privilegios necesarios para hacerlo. En español se le suele llamar "liberar"
+como si el usuario tuviera los permisos o privilegios necesarios para hacerlo, esto se hace modificando el firmware o instalando un chip. 
+En español se le suele llamar "liberar". Liberar, por ejemplo una consola, es el proceso de eliminar las restricciones que impone el 
+fabricante para permitir la instalación de software no autorizado, como juegos o aplicaciones no oficiales.
 
 Dificultad: Básico
 Traduccion: Liberar
 Frase de ejemplo: Quiero liberar mi consola para descargar juegos pirata
 Sinónimos: Hackear, liberar, to jailbreak, to hack
 Etiquetas: seguridad, hardware, videojuegos
-Fuente: https://es.wikipedia.org/wiki/Jailbreak
+Fuentes: https://es.wikipedia.org/wiki/Jailbreak // https://www.perplexity.ai
