@@ -1,0 +1,27 @@
+{
+  "término": "Nibble",
+  "definición": "El nibble es un conjunto de cuatro dígitos binarios (bit) o medio octeto (medio byte). El término procede de la palabra inglesa 'nibble', que significa mordisqueo (mordisco ligero o débil). Esto da a lugar a un juego de palabras entre byte y nibble; byte por su pronunciación similar a la palabra inglesa 'bite' (mordisco) y mayor que un nibble (mordisqueo).",
+  "creado por": "Sergio Estévez",
+  "categoría": "Almacenamiento",
+  "publicado el": "",
+  "estado": "poco uso",
+  "dificultad": "intermedia",
+  "traducción": "mordisqueo",
+  "frase ejemplo": "Este archivo pesa 33 nibbles, es decir, 132 bits o 16.5 bytes.",
+  "sinónimos": [
+    "medio-byte",
+    "semiocteto",
+    "cuarteto"
+  ],
+  "etiquetas": [
+    "ordenador",
+    "almacenamiento",
+    "sistema informático"
+  ],
+  "fuente": "https://es.wikipedia.org/wiki/Nibble",
+  "términos relacionados": [
+    "bit",
+    "byte",
+    "word"
+  ]
+}
