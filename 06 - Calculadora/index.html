@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="calculadora.css">
+    <title>Calculadora</title>
+</head>
+<body>
+    
+    <div class="calculator">
+        <div class="display">
+            <input type="text" id="operation" disabled>
+        </div>
+        <div class="buttons">
+            <button class="btn" onclick="addToOperation('7')">7</button>
+            <button class="btn" onclick="addToOperation('8')">8</button>
+            <button class="btn" onclick="addToOperation('9')">9</button>
+            <button class="btn operator" onclick="addToOperation('+')">+</button>
+
+            <button class="btn" onclick="addToOperation('4')">4</button>
+            <button class="btn" onclick="addToOperation('5')">5</button>
+            <button class="btn" onclick="addToOperation('6')">6</button>
+            <button class="btn operator" onclick="addToOperation('-')">-</button>
+
+            <button class="btn" onclick="addToOperation('1')">1</button>
+            <button class="btn" onclick="addToOperation('2')">2</button>
+            <button class="btn" onclick="addToOperation('3')">3</button>
+            <button class="btn operator" onclick="addToOperation('*')">*</button>
+
+            <button class="btn" onclick="addToOperation('0')">0</button>
+            <button class="btn" onclick="addToOperation('.')">.</button>
+            <button class="btn" onclick="clearOperation()">C</button>
+            <button class="btn operator" onclick="addToOperation('/')">/</button>
+
+            <button class="btn equals" onclick="calculate()">=</button>
+        </div>
+    </div>
+
+    
+    <script src="calculadora.js"></script>
+</body>
+</html>
