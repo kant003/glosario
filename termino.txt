@@ -1,0 +1,2 @@
+Computación Cuántica (Quantum Computing)
+Explicación: tecnología de computación basada en principios de la mecánica cuántica, que permite procesamientos muy superiores en ciertos problemas.
