@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mario Galaxy: Aventura Galáctica Épica</title>
+<style>
+  /* Fuente estilo arcade y galáctico */
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+  /* Reset */
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+
+  html, body {
+    width: 100%; height: 100%;
+    overflow: hidden;
+    background: radial-gradient(circle at center, #000000 0%, #0d0d2a 70%, #000022 100%);
+    font-family: 'Orbitron', sans-serif;
+    color: #fff;
+  }
+
+  /* Contenedor general */
+  #game {
+    width: 100vw; height: 100vh;
+    position: relative;
+    user-select: none;
+    overflow: hidden;
+  }
+
+  /* Pantalla inicial */
+  #startScreen, #gameOverScreen, #victoryScreen, #levelScreen {
+    position: absolute;
+    top:50%; left:50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    max-width: 600px;
+    background: rgba(10,10,40,0.85);
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 40px #44f0ff;
+    display: none;
+    z-index: 10;
+  }
+
+  #startScreen.active, #gameOverScreen.active, #victoryScreen.active, #levelScreen.active {
+    display: block;
+  }
+
+  h1 {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    text-shadow: 0 0 15px #44f0ff;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #9df5ff;
+  }
+  
+  p {
+    font-size: 1.25rem;
+    margin-bottom: 25px;
+    color: #c2efff;
+  }
+
+  .btn {
+    cursor: pointer;
+    font-size: 1.5rem;
+    background-color: #005eff;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 12px;
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 0 15px #00a1ff;
+    transition: background-color 0.4s ease;
+    user-select: none;
+  }
+
+  .btn:hover {
+    background-color: #0088ff;
+  }
+
+  /* Pantalla HUD */
+  #hud {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 1.25rem;
+    background: rgba(0,0,20,0.6);
+    padding: 10px 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px #22aeff;
+    user-select: none;
+    z-index: 8;
+  }
+
+  #hud span {
+    margin-right: 25px;
+  }
+
+  /* Controles de Nave */
+  #controlsHint {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1rem;
+    color: #a0cfff;
+    background: rgba(0, 0, 30, 0.5);
+    padding: 8px 25px;
+    border-radius: 50px;
+    box-shadow: 0 0 12px #2277ff;
+    user-select: none;
+    z-index: 8;
+  }
+
+  /* CANVAS de juego */
+  #gameCanvas {
+    display: block;
+    background: radial-gradient(circle at center, #001155 40%, #000022 100%);
+    width: 100vw;
+    height: 100vh;
+  }
+
+  /* Animaciones de estrellas */
+
+  .star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation-name: twinkle;
+    animation-iteration-count: infinite;
+  }
+  .star.small {
+    width: 2px;
+    height: 2px;
+    animation-duration: 4s;
+  }
+  .star.medium {
+    width: 3px;
+    height: 3px;
+    animation-duration: 6s;
+  }
+  .star.large {
+    width: 4px;
+    height: 4px;
+    animation-duration: 8s;
+  }
+
+  @keyframes twinkle {
+    0%, 100% {opacity: 0.7;}
+    50% {opacity: 1;}
+  }
+
+  /* Planetas */
+
+  .planet {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, #8a2be2 60%, #47007a 100%);
+    box-shadow: 0 0 10px #9933ff;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    user-select: none;
+  }
+  .planet:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 25px #cc99ff;
+  }
+
+  /* Niveles de planeta*/
+
+  .planet.level1 {
+    width: 100px;
+    height: 100px;
+    top: 60%;
+    left: 25%;
+  }
+  .planet.level2 {
+    width: 130px;
+    height: 130px;
+    top: 30%;
+    left: 55%;
+  }
+  .planet.level3 {
+    width: 110px;
+    height: 110px;
+    top: 80%;
+    left: 70%;
+  }
+
+  /* Nave*/
+
+  #spaceship {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: url('https://i.imgur.com/QBAPA4b.png') no-repeat center/contain;
+    user-select: none;
+  }
+  #spaceship.engineBoost {
+    filter: drop-shadow(0 0 10px #00e8ff);
+  }
+
+  /* Texto narrativo */
+  #narrative {
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 800px;
+    background: rgba(0,0,30,0.9);
+    padding: 20px;
+    font-size: 1.25rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 0 20px #00aaff;
+    user-select: none;
+    z-index: 7;
+  }
+
+</style>
+</head>
+<body>
+<div id="game">
+
+  <!-- Pantallas de interacción -->
+  <div id="startScreen" class="active">
+    <h1>Mario Galaxy: Aventura Galáctica Épica</h1>
+    <p>¡Embárcate en una misión para rescatar a la Princesa Peach a través de galaxias lejanas! Controla tu nave, explora planetas, resuelve enigmas y derrota enemigos.</p>
+    <button class="btn" id="startBtn">Iniciar Aventura</button>
+  </div>
+
+  <div id="levelScreen">
+    <h2 id="levelTitle"></h2>
+    <p id="levelDescription"></p>
+    <button class="btn" id="levelStartBtn">Explorar</button>
+  </div>
+
+  <div id="gameOverScreen">
+    <h1>¡Misión Fallida!</h1>
+    <p>Has sido derrotado en tu misión. ¿Quieres intentarlo otra vez?</p>
+    <button class="btn" id="retryBtn">Reiniciar</button>
+  </div>
+
+  <div id="victoryScreen">
+    <h1>¡Misión Completada!</h1>
+    <p>Has rescatado a la Princesa Peach y restaurado la paz en la galaxia. ¡Eres un héroe galáctico!</p>
+    <button class="btn" id="playAgainBtn">Jugar de Nuevo</button>
+  </div>
+
+  <canvas id="gameCanvas" width="window.innerWidth" height="window.innerHeight"></canvas>
+
+  <div id="hud">
+    <span id="fuelDisplay">Combustible: 100%</span>
+    <span id="levelDisplay">Nivel: 0</span>
+  </div>
+
+  <div id="controlsHint">Controles: Flechas = mover nave, Espacio = boost</div>
+
+  <div id="narrative"></div>
+
+  <!-- Planetas interactivos -->
+  <div class="planet level1" data-level="1" title="Planeta Spiral"></div>
+  <div class="planet level2" data-level="2" title="Planeta Glow"></div>
+  <div class="planet level3" data-level="3" title="Planeta Star"></div>
+
+</div>
+
+<script>
+(() => {
+  const game = document.getElementById('game');
+  const startScreen = document.getElementById('startScreen');
+  const levelScreen = document.getElementById('levelScreen');
+  const gameOverScreen = document.getElementById('gameOverScreen');
+  const victoryScreen = document.getElementById('victoryScreen');
+  const startBtn = document.getElementById('startBtn');
+  const retryBtn = document.getElementById('retryBtn');
+  const playAgainBtn = document.getElementById('playAgainBtn');
+  const levelTitle = document.getElementById('levelTitle');
+  const levelDescription = document.getElementById('levelDescription');
+  const levelStartBtn = document.getElementById('levelStartBtn');
+  const planets = [...document.querySelectorAll('.planet')];
+  const hudFuel = document.getElementById('fuelDisplay');
+  const hudLevel = document.getElementById('levelDisplay');
+  const narrativeBox = document.getElementById('narrative');
+  const controlsHint = document.getElementById('controlsHint');
+  const gameCanvas = document.getElementById('gameCanvas');
+  const ctx = gameCanvas.getContext('2d');
+
+  let width = window.innerWidth;
+  let height = window.innerHeight;
+
+  gameCanvas.width = width;
+  gameCanvas.height = height;
+
+  // Estado del juego
+  let fuel = 100;
+  let level = 0;
+  let playing = false;
+
+  // Nave
+  const spaceship = {
+    x: width / 2,
+    y: height / 2,
+    width: 60,
+    height: 60,
+    speed: 0,
+    maxSpeed: 5,
+    acceleration: 0.15,
+    dx: 0,
+    dy: 0,
+    angle: 0,
+    boost: false
+  };
+
+  function drawSpaceship() {
+    ctx.save();
+    ctx.translate(spaceship.x, spaceship.y);
+    ctx.rotate(spaceship.angle);
+    const img = new Image();
+    img.src = 'https://i.imgur.com/QBAPA4b.png'; // Nave espacial Mario Galaxy
+    ctx.drawImage(img, -spaceship.width / 2, -spaceship.height / 2, spaceship.width, spaceship.height);
+    ctx.restore();
+  }
+
+  // Animación de estrellas
+  class Star {
+    constructor() {
+      this.x = Math.random() * width;
+      this.y = Math.random() * height;
+      this.radius = Math.random() * 1.4 + 0.3;
+      this.alpha = Math.random();
+      this.alphaDirection = Math.random() > 0.5 ? 1 : -1;
+      this.speed = Math.random() * 0.003 + 0.001;
+    }
+    update() {
+      this.alpha += this.alphaDirection * this.speed;
+      if (this.alpha >= 1) {
+        this.alpha = 1;
+        this.alphaDirection = -1;
+      } else if (this.alpha <= 0.3) {
+        this.alpha = 0.3;
+        this.alphaDirection = 1;
+      }
+    }
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha})`;
+      ctx.fill();
+    }
+  }
+
+  const stars = [];
+  for(let i=0;i<150;i++) {
+    stars.push(new Star());
+  }
+
+  // Controles teclado
+  const keys = {};
+  window.addEventListener('keydown', e => {
+    keys[e.key.toLowerCase()] = true;
+  });
+  window.addEventListener('keyup', e => {
+    keys[e.key.toLowerCase()] = false;
+  });
+
+  // Narrativa niveles galácticos
+  const levelsData = {
+    1: {
+      title: "Planeta Spiral",
+      description: "El planeta Spiral está cubierto por remolinos y pendientes retorcidas. Encuentra la estrella luminosa y esquiva a los enemigos de polvo estelar.",
+      objective: "Recolecta la estrella luminosa.",
+      music: "https://vgmsite.com/soundtracks/super-mario-galaxy-2/hzifqyoq/18%20-%20Gusty%20Garden%20Galaxy.mp3"
+    },
+    2: {
+      title: "Planeta Glow",
+      description: "El planeta Glow emite una luz suave pero desconcertante. Debes activar las torres de energía galácticas para abrir el portal al castillo de Bowser.",
+      objective: "Activa las 3 torres.",
+      music: "https://vgmsite.com/soundtracks/super-mario-galaxy-2/hzifqyoq/06%20-%20Space%20Jellyfish%20Galaxy.mp3"
+    },
+    3: {
+      title: "Planeta Star",
+      description: "El Planeta Star brilla con un millón de estrellas fugaces. Encuentra la clave final para rescatar a Princess Peach de Bowser.",
+      objective: "Encuentra la llave Estelar.",
+      music: "https://vgmsite.com/soundtracks/super-mario-galaxy-2/hzifqyoq/15%20-%20Starship%20Mario.mp3"
+    }
+  };
+
+  // Música background
+  let bgMusic = new Audio();
+  bgMusic.loop = true;
+
+  function playMusic(src) {
+    if(bgMusic.src !== src) {
+      bgMusic.pause();
+      bgMusic = new Audio(src);
+      bgMusic.loop = true;
+      bgMusic.volume = 0.6;
+      bgMusic.play();
+    }
+  }
+
+  // Función para esconder todas pantallas
+  function hideAllScreens() {
+    startScreen.classList.remove('active');
+    levelScreen.classList.remove('active');
+    gameOverScreen.classList.remove('active');
+    victoryScreen.classList.remove('active');
+  }
+
+  // Iniciar nivel actual
+  let currentPlanet = null;
+  let objectiveCompleted = false;
+
+  function showLevelScreen(levelId) {
+    hideAllScreens();
+    levelScreen.classList.add('active');
+
+    const levelData = levelsData[levelId];
+    levelTitle.textContent = levelData.title;
+    levelDescription.textContent = levelData.description;
+
+    levelStartBtn.onclick = () => {
+      level = levelId;
+      objectiveCompleted = false;
+      currentPlanet = levelId;
+      playing = true;
+      hideAllScreens();
+      narrativeBox.textContent = `Nivel ${level}: ${levelsData[level].objective}`;
+      hudLevel.textContent = `Nivel: ${level}`;
+      hudFuel.textContent = `Combustible: ${fuel.toFixed(0)}%`;
+      startGameplay(level);
+      playMusic(levelsData[level].music);
+
+      // Ocultar planetas para juego
+      planets.forEach(p => p.style.display = 'none');
+      controlsHint.style.display = 'block';
+    };
+  }
+
+  // Inicio del juego
+  startBtn.onclick = () => {
+    hideAllScreens();
+    planets.forEach(p => p.style.display = 'block');
+    narrativeBox.textContent = "Selecciona un planeta para comenzar tu aventura galáctica.";
+  };
+
+  retryBtn.onclick = () => {
+    location.reload();
+  };
+  playAgainBtn.onclick = () => {
+    location.reload();
+  };
+
+  // Al hacer clic en planeta, abrir pantalla de nivel
+  planets.forEach(p => {
+    p.addEventListener('click', e => {
+      const lvl = parseInt(p.getAttribute('data-level'));
+      showLevelScreen(lvl);
+    });
+  });
+
+  // Variables para el juego activo
+  let lastTime = 0;
+  let boostFuelUsage = 0.5;
+  let normalFuelUsage = 0.15;
+
+  // Mantener canvas limpio
+  function clearCanvas() {
+    ctx.clearRect(0, 0, width, height);
+  }
+
+  // Actualizar estado de la nave y dibujar
+  function updateSpaceship(deltaTime) {
+    // Manejo de control
+    if(keys['arrowleft'] || keys['a']) {
+      spaceship.angle -= 0.05 * deltaTime;
+    }
+    if(keys['arrowright'] || keys['d']) {
+      spaceship.angle += 0.05 * deltaTime;
+    }
+    if(keys['arrowup'] || keys['w']) {
+      if(spaceship.speed < spaceship.maxSpeed) {
+        spaceship.speed += spaceship.acceleration * deltaTime;
+      }
+    } else { // desaceleración natural
+      if(spaceship.speed > 0) {
+        spaceship.speed -= spaceship.acceleration * deltaTime * 0.7;
+        if(spaceship.speed < 0) spaceship.speed = 0;
+      }
+    }
+
+    // Espacio para boost
+    if(keys[' ']) {
+      if(fuel > 0) {
+        spaceship.speed = spaceship.maxSpeed * 1.8;
+        fuel -= boostFuelUsage * deltaTime;
+        spaceship.boost = true;
+      } else {
+        spaceship.boost = false;
+      }
+    } else {
+      spaceship.boost = false;
+      if(spaceship.speed > spaceship.maxSpeed) {
+        spaceship.speed -= spaceship.acceleration * deltaTime * 1.2;
+      }
+    }
+
+    // Actualizar posición
+    spaceship.dx = Math.cos(spaceship.angle) * spaceship.speed;
+    spaceship.dy = Math.sin(spaceship.angle) * spaceship.speed;
+    spaceship.x += spaceship.dx;
+    spaceship.y += spaceship.dy;
+
+    // Limitar límites pantalla
+    if(spaceship.x < 0) spaceship.x = width;
+    else if(spaceship.x > width) spaceship.x = 0;
+    if(spaceship.y < 0) spaceship.y = height;
+    else if(spaceship.y > height) spaceship.y = 0;
+
+    // Disminuir combustible normal si no boost
+    if(spaceship.speed > 0 && !spaceship.boost) {
+      fuel -= normalFuelUsage * deltaTime * (spaceship.speed / spaceship.maxSpeed);
+    }
+
+    // Limitar combustible
+    if(fuel < 0) fuel = 0;
+
+    // Actualizar HUD
+    hudFuel.textContent = `Combustible: ${fuel.toFixed(0)}%`;
+  }
+
+  // Comportamiento para objetivos por nivel - Simplificado ejemplo para nivel 1
+  let starCollected = false;
+  let towersActivated = 0;
+  let keyFound = false;
+
+  // Evento manejo mouse/plataformas para recolectar, activar y buscar
+  function checkObjectiveCollisions() {
+    if(level === 1) {
+      // Star: posicion estática para demo
+      if(!starCollected) {
+        if(distance(spaceship.x, spaceship.y, width*0.75, height*0.35) < 50) {
+          starCollected = true;
+          narrativeBox.textContent = "¡Estrella luminosa recogida! Vuelve a la nave para continuar la misión.";
+          checkMissionComplete();
+        }
+      }
+    }
+    if(level === 2) {
+      // Activar torres (3) en posiciones demo
+      let towersPositions = [
+        {x: width*0.3, y: height*0.6},
+        {x: width*0.5, y: height*0.5},
+        {x: width*0.7, y: height*0.7}
+      ];
+      towersPositions.forEach((tower, i) => {
+        if(distance(spaceship.x, spaceship.y, tower.x, tower.y) < 40 && towersActivated <= i) {
+          towersActivated++;
+          narrativeBox.textContent = `Has activado la torre galáctica ${towersActivated}/3.`;
+          checkMissionComplete();
+        }
+      });
+    }
+    if(level === 3) {
+      // Buscar llave estelar demo en posición
+      if(!keyFound) {
+        if(distance(spaceship.x, spaceship.y, width*0.6, height*0.4) < 50) {
+          keyFound = true;
+          narrativeBox.textContent = "¡Llave Estelar encontrada! Dirígete a Bowser para rescatar a Peach.";
+          checkMissionComplete();
+        }
+      }
+    }
+  }
+
+  // Distancia euclídea para detección de proximidad
+  function distance(x1, y1, x2, y2) {
+    let dx = x1 - x2;
+    let dy = y1 - y2;
+    return Math.sqrt(dx*dx + dy*dy);
+  }
+
+  // Verifica si misión completa y pasar a siguiente nivel o victoria
+  function checkMissionComplete() {
+    if(level === 1 && starCollected) {
+      setTimeout(() => {
+        narrativeBox.textContent = "¡Misión del Planeta Spiral completada! Regresa a la galaxia.";
+        playing = false;
+        showNextPlanets(2);
+      }, 2000);
+    } else if(level === 2 && towersActivated >=3) {
+      setTimeout(() => {
+        narrativeBox.textContent = "¡Torres activadas! Portales abiertos para Planeta Star.";
+        playing = false;
+        showNextPlanets(3);
+      }, 2000);
+    } else if(level === 3 && keyFound) {
+      setTimeout(() => {
+        narrativeBox.textContent = "Llave obtenida, enfrentando batalla final...";
+        playing = false;
+        showVictoryScreen();
+      }, 2000);
+    }
+  }
+
+  // Mostrar planetas disponibles para seleccionar
+  function showNextPlanets(nextLevel) {
+    planets.forEach(p => {
+      const lvl = parseInt(p.getAttribute('data-level'));
+      if(lvl === nextLevel) p.style.display = 'block';
+      else p.style.display = 'none';
+    });
+    narrativeBox.textContent += " Elige el siguiente planeta para continuar.";
+  }
+
+  // Pantalla victoria
+  function showVictoryScreen() {
+    hideAllScreens();
+    victoryScreen.classList.add('active');
+    planets.forEach(p => p.style.display = 'none');
+    narrativeBox.textContent = "¡Felicidades! Has salvado a Peach y la galaxia está segura gracias a ti.";
+    playMusic(null);
+  }
+
+  // Pantalla Game Over (cuando combustible se agota o fallas)
+  function showGameOverScreen() {
+    hideAllScreens();
+    gameOverScreen.classList.add('active');
+    planets.forEach(p => p.style.display = 'none');
+    narrativeBox.textContent = "Te has quedado sin combustible o has sido derrotado. Intenta de nuevo.";
+    playMusic(null);
+  }
+
+  // Juego principal loop
+  function gameLoop(timestamp=0) {
+    if(!lastTime) lastTime = timestamp;
+    const deltaTime = (timestamp - lastTime) / 16.67; // regla para velocidad relativa (~60fps)
+    lastTime = timestamp;
+
+    if(playing) {
+      clearCanvas();
+      // Dibujar estrellas
+      stars.forEach(star => {
+        star.update();
+        star.draw();
+      });
+
+      updateSpaceship(deltaTime);
+      checkObjectiveCollisions();
+
+      // Dibujar nave
+      // Para mejor performance evitar crear image cada frame, creamos una sola vez
+      if(!spaceship.img) {
+        spaceship.img = new Image();
+        spaceship.img.src = 'https://i.imgur.com/QBAPA4b.png';
+      }
+      ctx.save();
+      ctx.translate(spaceship.x, spaceship.y);
+      ctx.rotate(spaceship.angle);
+      ctx.drawImage(spaceship.img, -spaceship.width/2, -spaceship.height/2, spaceship.width, spaceship.height);
+      ctx.restore();
+
+      // Mostrar efecto boost
+      if(spaceship.boost) {
+        const glowRadius = 20 + Math.sin(timestamp * 0.1) * 10;
+        ctx.beginPath();
+        ctx.arc(spaceship.x, spaceship.y, glowRadius, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(0, 190, 255, 0.3)';
+        ctx.shadowBlur = 30;
+        ctx.shadowColor = 'cyan';
+        ctx.fill();
+        ctx.shadowBlur = 0;
+      }
+
+      if(fuel <= 0) {
+        showGameOverScreen();
+        playing = false;
+      }
+    }
+
+    requestAnimationFrame(gameLoop);
+  }
+
+  // Inicializar juego, mostrar pantalla inicio
+  function init() {
+    hideAllScreens();
+    startScreen.classList.add('active');
+    planets.forEach(p => p.style.display = 'none');
+    narrativeBox.textContent = "";
+    playing = false;
+    fuel = 100;
+    level = 0;
+    starCollected = false;
+    towersActivated = 0;
+    keyFound = false;
+    hudFuel.textContent = `Combustible: ${fuel.toFixed(0)}%`;
+    hudLevel.textContent = "Nivel: 0";
+    controlsHint.style.display = 'none';
+  }
+
+  // Inicia la jugabilidad de un nivel dado
+  function startGameplay(levelId) {
+    // Reset parámetros
+    fuel = 100;
+    starCollected = false;
+    towersActivated = 0;
+    keyFound = false;
+    hudFuel.textContent = `Combustible: ${fuel.toFixed(0)}%`;
+    playing = true;
+  }
+
+  window.addEventListener('resize', () => {
+    width = window.innerWidth;
+    height = window.innerHeight;
+    gameCanvas.width = width;
+    gameCanvas.height = height;
+  });
+
+  // Iniciar loop
+  init();
+  requestAnimationFrame(gameLoop);
+
+})();
+</script>
+
+</body>
+</html>
