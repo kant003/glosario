@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.84.0">
+    <title>Blog Template · Bootstrap v5.0</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/blog/">
+
+    <!-- Bootstrap core CSS -->
+    <!-- <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <!-- usamos google apis para trabajar con una fuente de texto CONCRETA -->
+     
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=VT323&display=swap" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="blog.css" rel="stylesheet">
+  </head>
+  <body>
+
+<div class="container">
+  <header class="blog-header py-3">
+    <div class="row flex-nowrap justify-content-between align-items-center">
+      <div class="col-4 pt-1">
+        <a class="link-secondary" href="#">Suscríbete!</a>
+      </div>
+      <div class="col-4 text-center">
+        <a class="blog-header-logo text-dark" href="#" style="text-decoration: none;">El Rincón de [LaNere]</a>
+      </div>
+      <div class="col-4 d-flex justify-content-end align-items-center">
+        <a class="link-secondary" href="#" aria-label="Search">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"/><path d="M21 21l-5.2-5.2"/></svg>
+        </a>
+        <a class="btn btn-sm btn-btn-secondary" href="#">Regístrate</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="nav-scroller py-1 mb-2">
+    <nav class="nav d-flex justify-content-center">
+      <a class="p-2 link-secondary" href="links/carrouselNere.html">Viajes</a>
+      <a class="p-2 link-secondary" href="https://www.cebem.net/index.php/es/ciclos-fp/grado-superior/desenvolvemento-de-aplicacions-multiplataforma" target="_blank">DAM</a>
+      <a class="p-2 link-secondary" href="links/pinterest.html">Motivación</a>
+    </nav>
+  </div>
+</div>
+
+<main class="container">
+  <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark" style="--bs-bg-opacity: .7; background-image: url('imagenes/fondo.jpg'); background-size: cover;">
+    <div class="col-md-6 px-0">
+      <h1 class="display-4 fst-italic">Mis 3 herramientas favoritas para estudiar DAM!!</h1>
+      <p class="lead my-3">Empecé este curso con muchas ganas de aprender de este mundillo, pero... muy pronto me di cuenta que era más difícil de lo que creía, por suerte, encontre estas herramientas super útiles para personas que les cuesta pillar la lógica.</p>
+      <p class="lead mb-0"><a href="#" style="text-decoration: none;" class="text-white fw-bold">Continua leyendo &#128540;</a></p>
+    </div>
+  </div>
+
+  <div class="row mb-2">
+    <div class="col-md-6">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2" style="color: deeppink;">Viajes</strong>
+          <h3 class="mb-0">Mallorca</h3>
+          <div class="mb-1 text-muted">Agosto 15</div>
+          <p class="card-text mb-auto">Mi viaje a Mallorca fue una experiencia inolvidable, quieres saber el itinerario que tuve?</p>
+          <a href="links/carrouselNere.html" class="stretched-link">Continua leyendo y lo descubrirás!</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <!-- <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
+          <img src="imagenes/mallorca.jpg" 
+           alt="Cala turquesa en Mallorca" 
+           width="200" 
+           height="250"
+           class="img-fluid h-100"
+           style="object-fit: cover; border-left: 1px solid #dee2e6; border-top-right-radius: .25rem; border-bottom-right-radius: .25rem;"
+           loading="lazy">
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2" style="color: lightskyblue;">Motivación</strong>
+          <h3 class="mb-0">A veces nos sentimos desanimados</h3>
+          <div class="mb-1 text-muted">Mayo 22</div>
+          <p class="mb-auto">Si necesitas motivarte, este apartado es perfecto para ti, mucha suerte, yo se que tú puedes.</p>
+          <a href="links/pinterest.html" class="stretched-link">No te lo pienses, clícame</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <!-- <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
+           <img src="imagenes/hamster.jpg" 
+           alt="Cala turquesa en Mallorca" 
+           width="200" 
+           height="250"
+           class="img-fluid h-100"
+           style="object-fit: cover; border-left: 1px solid #dee2e6; border-top-right-radius: .25rem; border-bottom-right-radius: .25rem;"
+           loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <br>
+  <!-- <div class="img" style="flex: 1 1 35%; text-align: right;">
+    <img src="collage.jpg" alt="collages" width="100%" style="max-width: 400px; border-radius: 10px;">
+  </div> -->
+  
+  <div class="contenedor">
+    <img src="imagenes/collage.jpg" alt="collages" class="imagen" width="100%" style="max-width: 400px; border-radius: 10px;">
+
+    <div class="col-md-8">
+      <h3 class="pb-4 mb-4 fst-italic border-bottom">
+        Mi bibliografía
+      </h3>
+
+      <article class="blog-post">
+        <h2 class="blog-post-title">Hola! Soy Nere</h2>
+        <p class="blog-post-meta">Mayo 22, 2025 by <a href="#">Nere</a></p>
+
+        <p>Bienvenido/a a mi rincón en Internet. Soy una persona curiosa, apasionada por la programación, viajar... y siempre estoy buscando nuevas formas de aprender y compartir lo que descubro</p>
+        <hr>
+        <p>Este blog nace con la intención de compartir ideas, experiencias, conocimientos o simplemente crear un espacio de reflexión. Aquí encontrarás consejos, recursos, reflexiones... siempre escritos con autenticidad y el deseo de conectar con quienes me leen.</p>
+        <h2>!Un poquito más sobre mí!</h2>
+        <p>Tengo 20 añitos, nací el 25 de enero del 2005 y mi color favorito es el rosa pastel</p>
+        <!-- <blockquote class="blockquote">
+          <p>Quoted text goes here.</p>
+        </blockquote> -->
+        <p>Hice un ciclo medio de auxiliar administrativo, hice unas prácticas en Abanca y... bueno, se puede decir que no salí muy contenta de ahí. Decidí volver a estudiar algo y me decante por este ciclo,
+          me llamó la atención y dije "¿Por qué no?", ahora me arrepiento un poco jajaja, sabía que era difícil... pero <strong>NO TANTO!!</strong> jajaja bueno, se intenta, lo importante es eso, aparte de que ya me 
+          organizé para hacerlo mejor el año que viene. Así que... SE VIENEN COSITAS CHICUS! 
+        </p>
+        <h3>Más cositas jiji</h3>
+        <p>Mi comida favorita, sí, lo sé, muy típico no?, pero quiero compartir con vosotros las que más me gustan, bueno las que más <strong>me encantan</strong>:</p>
+        <ul>
+          <li>LASAÑA, es mágica, increíble.</li>
+          <li>CROQUETAS, como las de la abuela no hay, esto no se discute.</li>
+          <li>PASTA, con atún, huevo, con carne picada, pechuga de pollo, chuleta de cerdo... pega con todo, es una maravilla.</li>
+        </ul>
+        <p>Y por último, pero no menos importante... llevo 1 año y 8 meses con mi pareja, me siento muy orgullosa y feliz de estar con el, gracias a mi dudu descubrí y aprendí muchas cositas
+          de mi misma que desconocía, poco a poco los dos lo fuimos construyendo algo especial y único que no pensé que podría tener nunca. El es mi pilar, en todos los aspectos, me ayuda mucho
+          a seguir estudiando y en conseguir mis objetivos. Es el mejor, el amor de mi vida&#128151;
+        </p>
+
+        
+      </article>
+        <!-- <ol>
+          <li>First list item</li>
+          <li>Second list item with a longer description</li>
+          <li>Third list item to close it out</li>
+        </ol> -->
+
+        <!-- <p>And this is a definiton list:</p>
+        <dl>
+          <dt>HyperText Markup Language (HTML)</dt>
+          <dd>The language used to describe and define the content of a Web page</dd>
+          <dt>Cascading Style Sheets (CSS)</dt>
+          <dd>Used to describe the appearance of Web content</dd>
+          <dt>JavaScript (JS)</dt>
+          <dd>The programming language used to build advanced Web sites and applications</dd>
+        </dl> -->
+        <!-- <h2>Inline HTML elements</h2>
+        <p>HTML defines a long list of available inline tags, a complete list of which can be found on the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">Mozilla Developer Network</a>.</p>
+        <ul>
+          <li><strong>To bold text</strong>, use <code class="language-plaintext highlighter-rouge">&lt;strong&gt;</code>.</li>
+          <li><em>To italicize text</em>, use <code class="language-plaintext highlighter-rouge">&lt;em&gt;</code>.</li>
+          <li>Abbreviations, like <abbr title="HyperText Markup Langage">HTML</abbr> should use <code class="language-plaintext highlighter-rouge">&lt;abbr&gt;</code>, with an optional <code class="language-plaintext highlighter-rouge">title</code> attribute for the full phrase.</li>
+          <li>Citations, like <cite>— Mark Otto</cite>, should use <code class="language-plaintext highlighter-rouge">&lt;cite&gt;</code>.</li>
+          <li><del>Deleted</del> text should use <code class="language-plaintext highlighter-rouge">&lt;del&gt;</code> and <ins>inserted</ins> text should use <code class="language-plaintext highlighter-rouge">&lt;ins&gt;</code>.</li>
+          <li>Superscript <sup>text</sup> uses <code class="language-plaintext highlighter-rouge">&lt;sup&gt;</code> and subscript <sub>text</sub> uses <code class="language-plaintext highlighter-rouge">&lt;sub&gt;</code>.</li>
+        </ul>
+        <p>Most of these elements are styled by browsers with few modifications on our part.</p>
+        <h2>Heading</h2>
+        <p>This is some additional paragraph placeholder content. It has been written to fill the available space and show how a longer snippet of text affects the surrounding content. We'll repeat it often to keep the demonstration flowing, so be on the lookout for this exact same string of text.</p>
+        <h3>Sub-heading</h3>
+        <p>This is some additional paragraph placeholder content. It has been written to fill the available space and show how a longer snippet of text affects the surrounding content. We'll repeat it often to keep the demonstration flowing, so be on the lookout for this exact same string of text.</p>
+        <pre><code>Example code block</code></pre>
+        <p>This is some additional paragraph placeholder content. It's a slightly shorter version of the other highly repetitive body text used throughout.</p>
+      </article>
+
+      <article class="blog-post">
+        <h2 class="blog-post-title">Another blog post</h2>
+        <p class="blog-post-meta">December 23, 2020 by <a href="#">Jacob</a></p>
+
+        <p>This is some additional paragraph placeholder content. It has been written to fill the available space and show how a longer snippet of text affects the surrounding content. We'll repeat it often to keep the demonstration flowing, so be on the lookout for this exact same string of text.</p>
+        <blockquote>
+          <p>Longer quote goes here, maybe with some <strong>emphasized text</strong> in the middle of it.</p>
+        </blockquote>
+        <p>This is some additional paragraph placeholder content. It has been written to fill the available space and show how a longer snippet of text affects the surrounding content. We'll repeat it often to keep the demonstration flowing, so be on the lookout for this exact same string of text.</p>
+        <h3>Example table</h3>
+        <p>And don't forget about tables in these posts:</p>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Upvotes</th>
+              <th>Downvotes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Alice</td>
+              <td>10</td>
+              <td>11</td>
+            </tr>
+            <tr>
+              <td>Bob</td>
+              <td>4</td>
+              <td>3</td>
+            </tr>
+            <tr>
+              <td>Charlie</td>
+              <td>7</td>
+              <td>9</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td>Totals</td>
+              <td>21</td>
+              <td>23</td>
+            </tr>
+          </tfoot>
+        </table>
+
+        <p>This is some additional paragraph placeholder content. It's a slightly shorter version of the other highly repetitive body text used throughout.</p>
+      </article>
+
+      <article class="blog-post">
+        <h2 class="blog-post-title">New feature</h2>
+        <p class="blog-post-meta">December 14, 2020 by <a href="#">Chris</a></p>
+
+        <p>This is some additional paragraph placeholder content. It has been written to fill the available space and show how a longer snippet of text affects the surrounding content. We'll repeat it often to keep the demonstration flowing, so be on the lookout for this exact same string of text.</p>
+        <ul>
+          <li>First list item</li>
+          <li>Second list item with a longer description</li>
+          <li>Third list item to close it out</li>
+        </ul>
+        <p>This is some additional paragraph placeholder content. It's a slightly shorter version of the other highly repetitive body text used throughout.</p>
+      </article>
+
+      <nav class="blog-pagination" aria-label="Pagination">
+        <a class="btn btn-outline-primary" href="#">Older</a>
+        <a class="btn btn-outline-secondary disabled" href="#" tabindex="-1" aria-disabled="true">Newer</a>
+      </nav>
+
+    </div> -->
+
+    <!-- <div class="col-md-4">
+      <div class="position-sticky" style="top: 2rem;">
+        <div class="p-4 mb-3 bg-light rounded">
+          <h4 class="fst-italic">About</h4>
+          <p class="mb-0">Customize this section to tell your visitors a little bit about your publication, writers, content, or something else entirely. Totally up to you.</p>
+        </div>
+
+        <div class="p-4">
+          <h4 class="fst-italic">Archives</h4>
+          <ol class="list-unstyled mb-0">
+            <li><a href="#">March 2021</a></li>
+            <li><a href="#">February 2021</a></li>
+            <li><a href="#">January 2021</a></li>
+            <li><a href="#">December 2020</a></li>
+            <li><a href="#">November 2020</a></li>
+            <li><a href="#">October 2020</a></li>
+            <li><a href="#">September 2020</a></li>
+            <li><a href="#">August 2020</a></li>
+            <li><a href="#">July 2020</a></li>
+            <li><a href="#">June 2020</a></li>
+            <li><a href="#">May 2020</a></li>
+            <li><a href="#">April 2020</a></li>
+          </ol>
+        </div>
+
+        <div class="p-4">
+          <h4 class="fst-italic">Elsewhere</h4>
+          <ol class="list-unstyled">
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">Facebook</a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>  -->
+
+<div class="boton-vuelta">
+  <p><a class="btn btn-outline-light" href="#" style="background-color: pink; text-align: right;">Vuelta arriba!! </a></p>
+</div>
+
+
+<footer class="blog-footer text-left ">
+  <nav class="blog-pagination" aria-label="Pagination">
+
+    <p>Blog template built for <a href="https://getbootstrap.com/" style="color: pink;" target="_blank">Bootstrap</a> customized by <a href="https://github.com/Nere05" style="color: pink;" target="_blank">@Nere05</a>.</p>
+  </nav>
+
+</footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    
+  </body>
+</html>
