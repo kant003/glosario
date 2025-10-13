@@ -1,0 +1,5 @@
+Cualquier idiota puede escribir código que una computadora entienda. 
+Los buenos programadores escriben código que los humanos entienden.
+
+
+ Martin Fowler
