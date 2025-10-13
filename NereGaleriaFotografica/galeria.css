@@ -1,0 +1,26 @@
+.fw-light.text-center.text-lg-start.mt-4.mb-0{
+	font-family: Sour Gummy;
+}
+
+.año{
+	font-family: "Sour Gummy", cursive;
+	font-size: 20px;
+	text-align: center;
+}
+
+.col-6.col-md-4.col-lg-3.col-xl-2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.container img{
+    width: 900px;
+    height: 200px;
+    object-fit: cover;
+}
+
+body{
+    background-color: rgb(252, 214, 220);
+}
