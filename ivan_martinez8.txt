@@ -1,0 +1,4 @@
+Hay dos formas de diseñar software: una es hacerlo tan sencillo que es obvio su ausencia de defectos, 
+y la otra es hacerlo tan complicado que no tengas defectos obvios.
+
+Tony Hoare
