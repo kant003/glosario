@@ -1,0 +1,2 @@
+¿Qué hace un desarrollador Java cuando tiene problemas de memoria?
+Le reza al Garbage Collector 🙏🗑️
