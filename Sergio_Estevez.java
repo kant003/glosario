@@ -1,4 +1,4 @@
-package uno;
+package glosario;
 
 import java.util.Scanner;
 
