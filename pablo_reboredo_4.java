@@ -1,4 +1,4 @@
-public class pablo_reboredo_4 {
+public class AreaRectangulo  {
     public static void main(String[] args) {
         int base = 5;
         int altura = 3;

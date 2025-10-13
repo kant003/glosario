@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class pablo_reboredo_5 {
+public class SumaDosNumeros  {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         
