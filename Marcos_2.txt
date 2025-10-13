@@ -1,0 +1,1 @@
+"Si debuggear es el proceso de remover errores de código entonces programar debe ser el proceso de ponerlos." - Edsger Dijkstra
