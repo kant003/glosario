@@ -1,0 +1,31 @@
+import java.math.BigInteger;
+import java.util.Scanner;
+
+public class GranosYAjedrez {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner (System.in);
+		System.out.println("cuento hindu del ajedrez");
+		System.out.println("------------------------");
+		
+		System.out.println("introduce numero de casillas de tu ajedrez: ");
+		int numero=sc.nextInt();
+		
+		BigInteger suma=new BigInteger("0");
+		BigInteger parcial = new BigInteger("1");
+		
+		
+		for (int i=1; i<=numero; i++) {
+			//numero de granos en la casilla contador
+			parcial = BigInteger.valueOf(2).pow(i-1);
+			//almaceno la suma
+			suma=suma.add(parcial);
+		}
+		
+		System.out.println("El total de granos que hay en un tablero es: "+suma);
+		
+	} 
+	
+}
+	

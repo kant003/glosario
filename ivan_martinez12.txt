@@ -1,0 +1,3 @@
+¿Cuál es el animal favorito de un programador Java?
+El NullPointerException…
+Porque siempre aparece cuando menos lo esperas.

@@ -1,0 +1,3 @@
+Un programa es un conjunto de instrucciones, más o menos ordenado, 
+que funcionaría igual o mejor si se suprimen el 20% de ellas
+
