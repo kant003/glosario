@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta
+      name="author"
+      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+    />
+    <meta name="generator" content="Hugo 0.84.0" />
+    <title>Album sample · Bootstrap v5.0</title>
+
+    <link
+      rel="canonical"
+      href="https://getbootstrap.com/docs/5.0/examples/album/"
+    />
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> 
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="collapse bg-dark" id="navbarHeader">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-md-7 py-4">
+              <h4 class="text-white">About</h4>
+              <p class="text-muted">
+                Add some information about the album below, the author, or any
+                other background context. Make it a few sentences long so folks
+                can pick up some informative tidbits. Then, link them off to
+                some social networking sites or contact information.
+              </p>
+            </div>
+            <div class="col-sm-4 offset-md-1 py-4">
+              <h4 class="text-white">Contact</h4>
+              <ul class="list-unstyled">
+                <li><a href="#" class="text-white">Follow on Twitter</a></li>
+                <li><a href="#" class="text-white">Like on Facebook</a></li>
+                <li><a href="#" class="text-white">Email me</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="container">
+          <a href="#" class="navbar-brand d-flex align-items-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              aria-hidden="true"
+              class="me-2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"
+              />
+              <circle cx="12" cy="13" r="4" />
+            </svg>
+            <strong>Album</strong>
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarHeader"
+            aria-controls="navbarHeader"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="py-5 text-center container">
+        <div class="row py-lg-5">
+          <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light">Álbum Biología Marina</h1>
+            <p class="lead text-muted">
+              En este álbum sobre biología marina, se mostrarán diferentes especies en su hábitat natural.
+              Es una manera de conocer a estos fabulosos animales y seres vivos acuáticos, que disfruten de esta experiencia visual!
+            </p>
+            <p>
+              <a href="#" class="btn btn-primary my-2">Animales marinos</a>
+              <a href="#" class="btn btn-secondary my-2">Vida marina</a>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div class="album py-5 bg-light">
+        <div class="container">
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div class="col">
+              <div class="card shadow-sm">
+                <svg
+                  class="bd-placeholder-img card-img-top"
+                  width="100%"
+                  height="3"
+                  xmlns="http://www.w3.org/2000/svg"
+                  role="img"
+                  aria-label="Placeholder: Thumbnail"
+                  preserveAspectRatio="xMidYMid slice"
+                  focusable="false"
+                >
+                <title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#55595c" />
+                <text x="50%" y="50%" fill="#eceeef" dy=".3em">
+                    <img src="https://static.nationalgeographic.es/files/styles/image_3200/public/naturepl01597785.webp?w=1600&h=900" class="img-thumbnail" alt="ballena"/>
+                  </text> 
+                </svg>
+
+                <div class="card-body">
+                  <p class="card-text">
+                    La <b>ballena jorobada</b>, también llamada ballena <em>yubarta</em>, es una especie de cetáceo misticeto de la familia Balaenopteridae. 
+                    Es una de los ballenas más grandes. los adultos tienen una longitud de 12 a 16 m y un peso aproximado de 36.000 kg. 
+                    La especie posee una forma corporal distintiva, con aletas pectorales largas y cabeza nudosa.
+                  </p>
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <div class="btn-group">
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-outline-secondary"
+                      >
+                        Ver
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-outline-secondary"
+                      >
+                        Editar
+                      </button>
+                    </div>
+                    <small class="text-muted">9 mins</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col">
+              <div class="card shadow-sm">
+                <svg
+                  class="bd-placeholder-img card-img-top"
+                  width="100%"
+                  height="3"
+                  xmlns="http://www.w3.org/2000/svg"
+                  role="img"
+                  aria-label="Placeholder: Thumbnail"
+                  preserveAspectRatio="xMidYMid slice"
+                  focusable="false"
+                >
+                  <title>Placeholder</title>
+                  <rect width="100%" height="100%" fill="#55595c" />
+                  <text x="50%" y="50%" fill="#eceeef" dy=".3em">
+                    <img src="https://static.nationalgeographic.es/files/styles/image_3200/public/minden_80072187.webp?w=1600&h=900" class="img-thumbnail" alt="plancton"/>
+
+                  </text>
+                </svg>
+
+                <div class="card-body">
+                  <p class="card-text">
+                    Se denomina <b>plancton</b> al conjunto de organismos, principalmente microscópicos, que flotan en aguas saladas o dulces, 
+                    más abundantes hasta los 200 metros de profundidad, aproximadamente.En el océano, son una fuente crucial de alimento de numerosos organismos acuáticos pequeños y grandes,
+                    tales como bivalvos, peces, y ballenas.
+                  </p>
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <div class="btn-group">
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-outline-secondary"
+                      >
+                        Ver
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-outline-secondary"
+                      >
+                        Editar
+                      </button>
+                    </div>
+                    <small class="text-muted">9 mins</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card shadow-sm">
+                <svg
+                  class="bd-placeholder-img card-img-top"
+                  width="100%"
+                  height="3"
+                  xmlns="http://www.w3.org/2000/svg"
+                  role="img"
+                  aria-label="Placeholder: Thumbnail"
+                  preserveAspectRatio="xMidYMid slice"
+                  focusable="false"
+                >
+                  <title>Placeholder</title>
+                  <rect width="100%" height="100%" fill="#55595c" />
+                  <text x="50%" y="50%" fill="#eceeef" dy=".3em">
+                    <img src="https://static.nationalgeographic.es/files/styles/image_3200/public/01-hawksbill-trade-nationalgeographic_1914657.webp?w=1600&h=900" class="img-thumbnail" alt="tortuga">
+              
+                  </text>
+                </svg>
+
+                <div class="card-body">
+                  <p class="card-text">
+                    La <b>tortuga carey</b> <em>(Eretmochelys imbricata)</em> es una especie de tortuga marina de la familia de los quelónidos.
+                    Su aspecto es similar al de otras tortugas marinas. Tiene un cuerpo plano, un caparazón protector, 
+                    y sus extremidades en forma de aletas están adaptadas para nadar en mar abierto.
+                    Su presa preferida son las esponjas de mar.
+                  </p>
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <div class="btn-group">
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-outline-secondary"
+                      >
+                        Ver
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-outline-secondary"
+                      >
+                        Editar
+                      </button>
+                    </div>
+                    <small class="text-muted">9 mins</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="card shadow-sm">
+                <svg
+                  class="bd-placeholder-img card-img-top"
+                  width="100%"
+                  height="3"
+                  xmlns="http://www.w3.org/2000/svg"
+                  role="img"
+                  aria-label="Placeholder: Thumbnail"
+                  preserveAspectRatio="xMidYMid slice"
+                  focusable="false"
+                >
+                  <title>Placeholder</title>
+                  <rect width="100%" height="100%" fill="#55595c" />
+                  <text x="50%" y="50%" fill="#eceeef" dy=".3em">
+                    <img src="https://static.nationalgeographic.es/files/styles/image_3200/public/coral-reefs-2728211.webp?w=1600&h=900" class="img-thumbnail" alt="arrecife">
+                  </text>
+                </svg>
+
+                <div class="card-body">
+                  <p class="card-text">
+                    Los <b>arrecifes de coral</b> son uno de los ecosistemas marinos más conocidos del mundo, siendo el más grande la Gran Barrera de Coral. Estos arrecifes están compuestos por grandes colonias de coral de una variedad de especies que viven juntas. 
+                    Los corales forman múltiples relaciones simbióticas con los organismos que los rodean.
+                  </p>
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <div class="btn-group">
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-outline-secondary"
+                      >
+                        Ver
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-outline-secondary"
+                      >
+                        Editar
+                      </button>
+                    </div>
+                    <small class="text-muted">9 mins</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card shadow-sm">
+                <svg
+                  class="bd-placeholder-img card-img-top"
+                  width="100%"
+                  height="3"
+                  xmlns="http://www.w3.org/2000/svg"
+                  role="img"
+                  aria-label="Placeholder: Thumbnail"
+                  preserveAspectRatio="xMidYMid slice"
+                  focusable="false"
+                >
+                  <title>Placeholder</title>
+                  <rect width="100%" height="100%" fill="#55595c" />
+                  <text x="50%" y="50%" fill="#eceeef" dy=".3em">
+                    <img src="https://static.nationalgeographic.es/files/styles/image_3200/public/naturepl_01291779.webp?w=546&h=308" class="img-thumbnail" alt="">
+                  </text>
+                </svg>
+
+                <div class="card-body">
+                  <p class="card-text">
+                    La <b>nutria marina</b> <em>(Enhydra lutris)</em> es una especie de mamífero carnívoro de la familia de los mustélidos; 
+                    es la única especie existente del género Enhydra.
+                    Los adultos de esta especie pesan entre catorce y cuarenta y cinco kilogramos, siendo el más pesado de 
+                    los mustélidos y al mismo tiempo uno de los mamíferos marinos más pequeños.
+                  </p>
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <div class="btn-group">
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-outline-secondary"
+                      >
+                        Ver
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-outline-secondary"
+                      >
+                        Editar
+                      </button>
+                    </div>
+                    <small class="text-muted">9 mins</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card shadow-sm">
+                <svg
+                  class="bd-placeholder-img card-img-top"
+                  width="100%"
+                  height="3"
+                  xmlns="http://www.w3.org/2000/svg"
+                  role="img"
+                  aria-label="Placeholder: Thumbnail"
+                  preserveAspectRatio="xMidYMid slice"
+                  focusable="false"
+                >
+                  <title>Placeholder</title>
+                  <rect width="100%" height="100%" fill="#55595c" />
+                  <text x="50%" y="50%" fill="#eceeef" dy=".3em">
+                    <img src="https://static.nationalgeographic.es/files/styles/image_3200/public/seaweed-farming.webp?w=1600&h=900" class="img-thumbnail" alt="">
+                  </text>
+                </svg>
+
+                <div class="card-body">
+                  <p class="card-text">
+                    Los <b>bosques de algas</b> (también llamados bosques de <em>kelp</em> o de <em>quelpos</em>) son áreas subacuáticas con una alta densidad de algas pardas. 
+                    Se reconocen como uno de los ecosistemas más productivos y dinámicos en la Tierra.
+                    Gran cantidad de vida marina utiliza los bosques de algas para guarecerse o como fuente de alimentación.
+                  </p>
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <div class="btn-group">
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-outline-secondary"
+                      >
+                        Ver
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-outline-secondary"
+                      >
+                        Editar
+                      </button>
+                    </div>
+                    <small class="text-muted">9 mins</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="card shadow-sm">
+                <svg
+                  class="bd-placeholder-img card-img-top"
+                  width="100%"
+                  height="3"
+                  xmlns="http://www.w3.org/2000/svg"
+                  role="img"
+                  aria-label="Placeholder: Thumbnail"
+                  preserveAspectRatio="xMidYMid slice"
+                  focusable="false"
+                >
+                  <title>Placeholder</title>
+                  <rect width="100%" height="100%" fill="#55595c" />
+                  <text x="50%" y="50%" fill="#eceeef" dy=".3em">
+                    <img src="https://static.nationalgeographic.es/files/styles/image_3200/public/nationalgeographic2728356.webp?w=1600&h=900" class="img-thumbnail" alt="">
+                  </text>
+                </svg>
+
+                <div class="card-body">
+                  <p class="card-text">
+                    La <b>foca gris</b> <em>(Halichoerus grypus)</em> es una especie de mamífero pinnípedo
+                    de la familia Phocidae relativamente común en aguas del Atlántico norte. Es la única especie de su género.
+                    Los machos son generalmente más oscuros que las hembras, con puntos más ligeros y a menudo cicatrices 
+                    alrededor del cuello. Las hembras son de color gris plata a marrón con puntos oscuros.
+                  </p>
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <div class="btn-group">
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-outline-secondary"
+                      >
+                        Ver
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-outline-secondary"
+                      >
+                        Editar
+                      </button>
+                    </div>
+                    <small class="text-muted">9 mins</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card shadow-sm">
+                <svg
+                  class="bd-placeholder-img card-img-top"
+                  width="100%"
+                  height="3"
+                  xmlns="http://www.w3.org/2000/svg"
+                  role="img"
+                  aria-label="Placeholder: Thumbnail"
+                  preserveAspectRatio="xMidYMid slice"
+                  focusable="false"
+                >
+                  <title>Placeholder</title>
+                  <rect width="100%" height="100%" fill="#55595c" />
+                  <text x="50%" y="50%" fill="#eceeef" dy=".3em">
+                    <img src="https://www.icm.csic.es/sites/default/files/styles/news_detail/public/noticies/2017-10-09_Oithona.jpg?h=f502c392&itok=kGerNPRx" class="img-thumbnail" alt="">
+                  </text>
+                </svg>
+
+                <div class="card-body">
+                  <p class="card-text">
+                    Los <b>copépodos</b> (<em>Copepoda</em>, del griego <em>«cope»</em>, remo, y <em>«poda»</em>, pata) son una clase de crustáceos​ de pequeño tamaño, muy extendidos por todo el planeta, 
+                    principalmente formando parte del zooplancton, aunque también es posible encontrar especies semiterrestres.
+                    Existen especies adaptadas a casi todo tipo de ambientes acuáticos (dulce, salobre, salada, aguas antárticas, etc.).
+                  </p>
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <div class="btn-group">
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-outline-secondary"
+                      >
+                        Ver
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-outline-secondary"
+                      >
+                        Editar
+                      </button>
+                    </div>
+                    <small class="text-muted">9 mins</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card shadow-sm">
+                <svg
+                  class="bd-placeholder-img card-img-top"
+                  width="100%"
+                  height="3"
+                  xmlns="http://www.w3.org/2000/svg"
+                  role="img"
+                  aria-label="Placeholder: Thumbnail"
+                  preserveAspectRatio="xMidYMid slice"
+                  focusable="false"
+                >
+                  <title>Placeholder</title>
+                  <rect width="100%" height="100%" fill="#55595c" />
+                  <text x="50%" y="50%" fill="#eceeef" dy=".3em">
+                    <img src="https://www.ecologistasenaccion.org/wp-content/uploads/2023/07/SebastianHernandisCaballero_Pelagia-noctiluca.jpg" class="img-thumbnail" alt="">
+                  </text>
+                </svg>
+
+                <div class="card-body">
+                  <p class="card-text">
+                    Las <b>medusas</b> <em>(Medusozoa)</em>, también llamadas aguavivas, aguamalas, aguacuajadas, ortigas de mar o lágrimas de mar, 
+                    son animales marinos pertenecientes al filo de los cnidarios; son pelágicos, de cuerpo gelatinoso, con forma de campana de la que cuelga un manubrio tubular, con la boca en el extremo inferior, 
+                    a veces prolongado por largos tentáculos cargados con células urticantes llamados cnidocitos.
+                  </p>
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <div class="btn-group">
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-outline-secondary"
+                      >
+                        Ver
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-outline-secondary"
+                      >
+                        Editar
+                      </button>
+                    </div>
+                    <small class="text-muted">9 mins</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="text-muted py-5">
+      <div class="container">
+        <p class="float-end mb-1">
+          <a href="#">Back to top</a>
+        </p>
+        <p class="mb-1">
+          Album example is &copy; Bootstrap, but please download and customize
+          it for yourself!
+        </p>
+        <p class="mb-0">
+          New to Bootstrap? <a href="/">Visit the homepage</a> or read our
+          <a href="../getting-started/introduction/">getting started guide</a>.
+        </p>
+      </div>
+    </footer>
+
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
